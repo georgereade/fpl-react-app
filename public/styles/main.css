@@ -1,0 +1,94 @@
+footer {
+    background-color: #8C3333;
+}
+
+body {
+    height: 120vh;
+    background-image: linear-gradient(#395144, #407558);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+h1,h2,h3,h4 {
+    color: #F2EE9D;
+    font-weight: 700;
+}
+
+p, .team-name {
+    color: #7A9D54;
+    font-weight: 500;
+    font-size: large;
+}
+
+#topnav {
+    background-color: #8C3333;
+    color: #7A9D54;
+}
+
+.navbar-brand, .nav-link {
+    color:whitesmoke;
+}
+
+.nav-link:hover, .navbar-brand:hover, .socials:hover {
+    color:#7A9D54;
+}
+
+.team-name {
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.team-grid {
+    height:60vh;
+}
+
+.fixtures {
+    display:flex;
+    margin-top: 10px;
+}
+
+.nextgame {
+    flex-basis:33%;
+    height: 100%;
+    padding: 5px;
+    border: solid grey 1px;
+    color: whitesmoke;
+}
+
+.easygame {
+    background-color: green;
+}
+
+.mediumgame {
+    background-color: orange;
+}
+
+.hardgame {
+    background-color: red;
+}
+
+.nofixture {
+    background-color: grey;
+}
+
+.legend {
+    color: whitesmoke;
+    height: 100%;
+    padding: 5px;
+    border: solid grey 1px;
+    font-weight: 500;
+    text-align: center;
+    font-size: large;
+    width: 200px;
+}
+
+#key {
+    font-weight: 700;
+    color: whitesmoke;
+    align-self: end;
+}
