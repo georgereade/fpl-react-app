@@ -4,7 +4,8 @@ footer {
 
 body {
     height: 120vh;
-    background-image: linear-gradient(#395144, #407558);
+    background-color: #407558;
+    background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
     font-family: 'Ubuntu', sans-serif;
 }
 
