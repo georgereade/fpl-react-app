@@ -15,6 +15,7 @@ body {
 
 .gwbox {
   display: flex;
+  object-fit: contain;
   /* outline: #3d1698 solid 2px; */
 }
 
@@ -31,4 +32,8 @@ body {
 .navbar-brand:hover,
 .socials:hover {
   color: #c94cd4;
+}
+
+#player-photos {
+  object-fit: contain;
 }

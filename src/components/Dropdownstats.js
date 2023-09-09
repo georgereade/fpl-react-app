@@ -5,7 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function Dropdownstats() {
+function Dropdownstats(props) {
   return (
     <Accordion>
       <AccordionSummary
@@ -13,12 +13,14 @@ function Dropdownstats() {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography>Accordion 1</Typography>
+        <Typography>Additional Stats</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          {props.bboost}
+          {props.tc}
+          {props.wc}
+          {props.fh}
         </Typography>
       </AccordionDetails>
     </Accordion>
