@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import Dropdownstats from "./Dropdownstats";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -26,7 +25,7 @@ function InfoWindow(props) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {props.teamName} {props.gameweekName}
+            {props.gameweekName}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Highest Score:{props.topScore} Average Score:{props.averageScore}
@@ -43,8 +42,14 @@ function InfoWindow(props) {
           <AccordionDetails>
             <Typography>
               <p>
-                Top Scoring Player: <li>{props.playerName}</li>
+                Top Scoring Player:{" "}
+                <li>
+                  {props.topPlayerName} {props.topPlayerPoints}pts
+                </li>
               </p>{" "}
+              <p>
+                Most Captained: <li>{props.mostCaptained}</li>
+              </p>
               Chips Played
               {props.bboost}
               {props.tc}

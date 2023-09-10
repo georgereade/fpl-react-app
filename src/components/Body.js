@@ -1,13 +1,11 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useEffect, useContext } from "react";
 import InfoWindow from "./InfoWindow";
+import { AllContext } from "../contexts/AllContext.js";
 
 function Body() {
-  const [teams, setTeams] = useState([]);
-  const [totalUsers, setTotalUsers] = useState([]);
-  const [gameweek, setGameweek] = useState([]);
-  const [player, setPlayer] = useState([]);
-  const [topPlayer, setTopPlayer] = useState([]);
-  const [photoCode, setPhotoCode] = useState([]);
+  const { totalUsers, setTotalUsers } = useContext(AllContext);
+  const { gameweek, setGameweek } = useContext(AllContext);
+  const { player, setPlayer } = useContext(AllContext);
 
   const fetchTeamsData = () => {
     fetch("/api/bootstrap-static/")
@@ -15,7 +13,6 @@ function Body() {
         return response.json();
       })
       .then((data) => {
-        setTeams(data.teams);
         setPlayer(data.elements);
         setTotalUsers(data.total_players);
       });
@@ -39,14 +36,6 @@ function Body() {
     fetchTeamsData();
     fetchGameweekData();
   }, []);
-
-  function reducer(e) {
-    const initialValue = 0;
-    e.reduce(
-      (accumulator, currentValue) => accumulator + currentValue,
-      initialValue
-    );
-  }
 
   function percentage(num) {
     return ((num / totalUsers) * 100).toFixed(2);
@@ -100,9 +89,13 @@ function Body() {
               playerImg={player
                 .filter((e) => e.id === gameweekItem.top_element)
                 .map((e) => e.code)}
-              playerName={player
+              topPlayerName={player
                 .filter((e) => e.id === gameweekItem.top_element)
                 .map((e) => e.second_name)}
+              mostCaptained={player
+                .filter((e) => e.id === gameweekItem.most_captained)
+                .map((e) => e.second_name)}
+              topPlayerPoints={gameweekItem.top_element_info.points}
             />
           );
         })}

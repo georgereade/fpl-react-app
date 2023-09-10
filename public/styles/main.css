@@ -24,7 +24,8 @@ body {
 }
 
 .navbar-brand,
-.nav-link {
+.nav-link,
+h1 {
   color: whitesmoke;
 }
 
