@@ -1,0 +1,72 @@
+body {
+  height: 100vh;
+  background-color: #6cc3e8;
+  background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+  font-family: "Chakra Petch", sans-serif;
+  font-family: "Chivo", sans-serif;
+}
+
+#infoCard,
+.card-container {
+  display: flex;
+  margin: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* @media screen and (max-width: 500px) {
+  /* #infoCard,
+  .card-container {
+    flex-direction: column;
+    justify-content: center;
+  } */
+/* body {
+    background-color: #3d1698;
+  } */
+/* } */
+
+#topnav {
+  background-color: #3d1698;
+}
+
+.navbar-brand,
+.nav-link,
+h1,
+#statsToggle {
+  color: whitesmoke;
+}
+
+.nav-link:hover,
+.navbar-brand:hover,
+.socials:hover {
+  color: #c94cd4;
+}
+
+#player-photos {
+  object-fit: contain;
+}
+
+#topPanel {
+  align-items: center;
+  text-align: center;
+  color: whitesmoke;
+  padding-top: 30px;
+  background-color: #7353be;
+}
+
+.bottomPanel {
+  position: relative;
+  top: 0;
+  align-items: center;
+  text-align: center;
+  color: whitesmoke;
+  background-color: #7353be;
+}
+
+.windowFont {
+  font-family: "Chakra Petch", sans-serif;
+  font-family: "Chivo", sans-serif;
+}
