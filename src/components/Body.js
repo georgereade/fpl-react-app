@@ -8,7 +8,7 @@ function Body() {
   const { player, setPlayer } = useContext(AllContext);
 
   const fetchTeamsData = () => {
-    fetch("/api/bootstrap-static/")
+    fetch("https://fantasy.premierleague.com/api/bootstrap-static/")
       .then((response) => {
         return response.json();
       })
@@ -19,7 +19,7 @@ function Body() {
   };
 
   const fetchGameweekData = () => {
-    fetch("/api/bootstrap-static/")
+    fetch("https://fantasy.premierleague.com/api/bootstrap-static/")
       .then((response) => {
         return response.json();
       })
