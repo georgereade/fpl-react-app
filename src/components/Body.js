@@ -43,7 +43,7 @@ function Body() {
 
   return (
     <div id="mainContent">
-      <div className="gwbox">
+      <div className="card-container">
         {gameweek.map((gameweekItem, index) => {
           return (
             <InfoWindow
@@ -65,7 +65,7 @@ function Body() {
                 if (e.chip_name === "3xc")
                   return (
                     <li>
-                      Triple Captain:{" "}
+                      Triple Captain:
                       <strong>{percentage(e.num_played)}%</strong>
                     </li>
                   );
@@ -91,10 +91,10 @@ function Body() {
                 .map((e) => e.code)}
               topPlayerName={player
                 .filter((e) => e.id === gameweekItem.top_element)
-                .map((e) => e.second_name)}
+                .map((e) => e.first_name + " " + e.second_name)}
               mostCaptained={player
                 .filter((e) => e.id === gameweekItem.most_captained)
-                .map((e) => e.second_name)}
+                .map((e) => e.first_name + " " + e.second_name)}
               topPlayerPoints={gameweekItem.top_element_info.points}
             />
           );
