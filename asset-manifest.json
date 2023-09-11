@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/fpl-react-app/static/js/main.50364e0b.js",
+    "main.js": "/fpl-react-app/static/js/main.e4f625b7.js",
     "index.html": "/fpl-react-app/index.html",
-    "main.50364e0b.js.map": "/fpl-react-app/static/js/main.50364e0b.js.map"
+    "main.e4f625b7.js.map": "/fpl-react-app/static/js/main.e4f625b7.js.map"
   },
   "entrypoints": [
-    "static/js/main.50364e0b.js"
+    "static/js/main.e4f625b7.js"
   ]
 }
