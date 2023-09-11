@@ -12,7 +12,7 @@ import Zoom from "@mui/material/Zoom";
 import { AllContext } from "../contexts/AllContext";
 
 function InfoWindow(props) {
-  const { checked, setChecked } = useContext(AllContext);
+  const { checked } = useContext(AllContext);
 
   return (
     <div id="infoCard">
@@ -31,10 +31,19 @@ function InfoWindow(props) {
               }
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                className="windowFont"
+              >
                 {props.gameweekName}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                className="windowFont"
+              >
                 Highest Score:{props.topScore} Average Score:
                 {props.averageScore}
               </Typography>
@@ -45,10 +54,10 @@ function InfoWindow(props) {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>Additional Stats</Typography>
+                <Typography className="windowFont">Additional Stats</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
+                <Typography className="windowFont">
                   Top Scoring Player:{" "}
                   <li>
                     {props.topPlayerName}:{" "}

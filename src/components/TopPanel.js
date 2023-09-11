@@ -14,7 +14,11 @@ function TopPanel() {
 
   return (
     <div id="topPanel">
-      <h1>Total Users: {formattedUsers}</h1>
+      <h5>
+        Toggle the stat panels. Information will automatically update throughout
+        the season.
+      </h5>
+      <p>Total FPL Users: {formattedUsers}</p>
       <FormControlLabel
         control={
           <Switch checked={checked} onChange={handleChange} color="warning" />

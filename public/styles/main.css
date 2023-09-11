@@ -1,8 +1,9 @@
 body {
   height: 100vh;
-  background-color: #3187ab;
+  background-color: #6cc3e8;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Chakra Petch", sans-serif;
+  font-family: "Chivo", sans-serif;
 }
 
 #infoCard,
@@ -51,4 +52,21 @@ h1,
 #topPanel {
   align-items: center;
   text-align: center;
+  color: whitesmoke;
+  padding-top: 30px;
+  background-color: #7353be;
+}
+
+.bottomPanel {
+  position: relative;
+  top: 0;
+  align-items: center;
+  text-align: center;
+  color: whitesmoke;
+  background-color: #7353be;
+}
+
+.windowFont {
+  font-family: "Chakra Petch", sans-serif;
+  font-family: "Chivo", sans-serif;
 }
