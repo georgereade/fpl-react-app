@@ -2,8 +2,8 @@
   "name": "fpl-react-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://georgereade.github.io/fpl-react-app",
   "proxy": "https://fantasy.premierleague.com",
+  "homepage": "",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -23,8 +23,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
