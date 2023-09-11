@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import InfoWindow from "./InfoWindow";
 import { AllContext } from "../contexts/AllContext.js";
-import fetchNoCors from "fetch-no-cors";
 
 function Body() {
   const { totalUsers, setTotalUsers } = useContext(AllContext);
