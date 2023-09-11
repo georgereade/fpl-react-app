@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import InfoWindow from "./InfoWindow";
 import { AllContext } from "../contexts/AllContext.js";
+import fetchNoCors from "fetch-no-cors";
 
 function Body() {
   const { totalUsers, setTotalUsers } = useContext(AllContext);
@@ -8,7 +9,9 @@ function Body() {
   const { player, setPlayer } = useContext(AllContext);
 
   const fetchTeamsData = () => {
-    fetch("https://fantasy.premierleague.com/api/bootstrap-static/")
+    fetch(
+      "https://cors-anywhere-sd7c.onrender.com/https://fantasy.premierleague.com/api/bootstrap-static/"
+    )
       .then((response) => {
         return response.json();
       })
@@ -19,7 +22,9 @@ function Body() {
   };
 
   const fetchGameweekData = () => {
-    fetch("https://fantasy.premierleague.com/api/bootstrap-static/")
+    fetch(
+      "https://cors-anywhere-sd7c.onrender.com/https://fantasy.premierleague.com/api/bootstrap-static/"
+    )
       .then((response) => {
         return response.json();
       })
