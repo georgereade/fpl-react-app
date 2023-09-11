@@ -100,7 +100,6 @@ function Body() {
           );
         })}
       </div>
-      <div className="bottomPanel">Test</div>
     </div>
   );
 }
