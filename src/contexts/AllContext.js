@@ -7,7 +7,8 @@ export const ContextProvider = (props) => {
   const [totalUsers, setTotalUsers] = useState([]);
   const [gameweek, setGameweek] = useState([]);
   const [player, setPlayer] = useState([]);
-  const [checked, setChecked] = useState([]);
+  const [gwstatsChecked, setgwstatsChecked] = useState([]);
+  const [teamstatsChecked, setteamstatsChecked] = useState([]);
   return (
     <AllContext.Provider
       value={{
@@ -19,8 +20,10 @@ export const ContextProvider = (props) => {
         setGameweek,
         player,
         setPlayer,
-        checked,
-        setChecked,
+        gwstatsChecked,
+        setgwstatsChecked,
+        teamstatsChecked,
+        setteamstatsChecked,
       }}
     >
       {" "}

@@ -1,8 +1,7 @@
 body {
   height: 100vh;
-  background-color: #6cc3e8;
+  background-color: #87c8e4;
   background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
-  font-family: "Chakra Petch", sans-serif;
   font-family: "Chivo", sans-serif;
 }
 
@@ -49,12 +48,15 @@ h1,
   object-fit: contain;
 }
 
-#topPanel {
+.topPanel {
   align-items: center;
   text-align: center;
+  align-content: center;
   color: whitesmoke;
-  padding-top: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: #7353be;
+  width: 100vw;
 }
 
 .bottomPanel {
@@ -67,6 +69,15 @@ h1,
 }
 
 .windowFont {
-  font-family: "Chakra Petch", sans-serif;
   font-family: "Chivo", sans-serif;
+}
+
+.sticky {
+  position: fixed;
+  top: 72px;
+  z-index: 99989;
+}
+
+.infoalert {
+  justify-content: center;
 }

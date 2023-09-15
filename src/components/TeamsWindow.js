@@ -8,13 +8,13 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Box from "@mui/material/Box";
-import Collapse from "@mui/material/Collapse";
 import { Zoom } from "react-awesome-reveal";
+import Collapse from "@mui/material/Collapse";
 import { AllContext } from "../contexts/AllContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function InfoWindow(props) {
-  const { gwstatsChecked } = useContext(AllContext);
+function TeamsWindow(props) {
+  const { teamstatsChecked } = useContext(AllContext);
 
   const theme = createTheme({
     typography: {
@@ -26,18 +26,18 @@ function InfoWindow(props) {
     <div id="infoCard">
       <ThemeProvider theme={theme}>
         <Box sx={{ display: "flex" }}>
-          <Collapse in={!!gwstatsChecked}>
-            <Zoom in={!!gwstatsChecked} triggerOnce={true}>
+          <Collapse collapsedSize={0} in={!!teamstatsChecked}>
+            <Zoom in={!!teamstatsChecked} triggerOnce={true}>
               <Card sx={{ maxWidth: 275, minWidth: 275 }}>
                 <CardMedia
                   component="img"
-                  alt="highest-score"
+                  alt="team-badges"
                   height="140"
                   id="player-photos"
                   image={
-                    "https://resources.premierleague.com/premierleague/photos/players/110x140/p" +
-                    props.playerImg +
-                    ".png"
+                    "https://resources.premierleague.com/premierleague/badges/rb/t" +
+                    props.badge +
+                    ".svg"
                   }
                 />
                 <CardContent>
@@ -47,16 +47,15 @@ function InfoWindow(props) {
                     component="div"
                     align="center"
                   >
-                    {props.gameweekName}
+                    {props.teamName}
                   </Typography>
                   <Typography
                     variant="body2"
                     color="text.secondary"
                     align="center"
                   >
-                    Highest Score:<strong>{props.topScore}</strong> <br />
-                    Average Score:
-                    <strong>{props.averageScore}</strong>
+                    Player Points: <strong>{props.playerPoints}</strong> <br />%
+                    of Total:{" "}
                   </Typography>
                 </CardContent>
                 <Accordion>
@@ -68,25 +67,9 @@ function InfoWindow(props) {
                     <Typography>More Stats</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <Typography display="block">
-                      Top Scoring Player:
-                      <br /> {props.topPlayerName}:{" "}
-                      <strong>{props.topPlayerPoints}pts</strong>
-                      <br />
-                      <br />
-                      Most Captained: <br />
-                      {props.mostCaptained}
-                      <br />
-                      <br />
-                      Chips Played:
-                      <br />
-                      Bench Boost: <strong>{props.bb}%</strong>
-                      <br />
-                      Triple Captain: <strong>{props.tc}%</strong>
-                      <br />
-                      Free Hit: <strong>{props.fh}%</strong>
-                      <br />
-                      Wildcard: <strong>{props.wc}%</strong>
+                    <Typography>
+                      Top Player: {props.topPlayerPoints}pts <br />
+                      Strength: {props.strength}
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -99,4 +82,4 @@ function InfoWindow(props) {
   );
 }
 
-export default InfoWindow;
+export default TeamsWindow;
