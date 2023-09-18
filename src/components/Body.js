@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import InfoWindow from "./InfoWindow";
+import GameweekWindow from "./GameweekWindow";
 import { AllContext } from "../contexts/AllContext.js";
 import TeamsWindow from "./TeamsWindow";
 
@@ -44,7 +44,7 @@ function Body() {
     fetchGameweekData();
   });
 
-  function percentage(num) {
+  function userPercentage(num) {
     return ((num / totalUsers) * 100).toFixed(2);
   }
 
@@ -52,12 +52,20 @@ function Body() {
     return accumulator + item;
   };
 
+  const grandTotalPoints = player.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.total_points;
+  }, 0);
+
+  function teamPercentage(num) {
+    return ((num / grandTotalPoints) * 100).toFixed(2);
+  }
+
   return (
     <div id="mainContent">
       <div className="card-container">
         {gameweek.map((gameweekItem, index) => {
           return (
-            <InfoWindow
+            <GameweekWindow
               key={index}
               id={index}
               gameweekName={gameweekItem.name}
@@ -65,16 +73,16 @@ function Body() {
               averageScore={gameweekItem.average_entry_score}
               bb={gameweekItem.chip_plays
                 .filter((e) => e.chip_name === "bboost")
-                .map((e) => percentage(e.num_played))}
+                .map((e) => userPercentage(e.num_played))}
               tc={gameweekItem.chip_plays
                 .filter((e) => e.chip_name === "3xc")
-                .map((e) => percentage(e.num_played))}
+                .map((e) => userPercentage(e.num_played))}
               fh={gameweekItem.chip_plays
                 .filter((e) => e.chip_name === "freehit")
-                .map((e) => percentage(e.num_played))}
+                .map((e) => userPercentage(e.num_played))}
               wc={gameweekItem.chip_plays
                 .filter((e) => e.chip_name === "wildcard")
-                .map((e) => percentage(e.num_played))}
+                .map((e) => userPercentage(e.num_played))}
               playerImg={player
                 .filter((e) => e.id === gameweekItem.top_element)
                 .map((e) => e.code)}
@@ -103,14 +111,27 @@ function Body() {
                 .filter((e) => e.team_code === teamItem.code)
                 .map((e) => e.total_points)
                 .reduce(reducer)}
-              topPlayerName={player
-                .filter((e) => e.team_code === teamItem.code)
-                .map((e) => e.total_points)
-                .reduce((a, b) => Math.max(a, b), -Infinity)}
+              teamProportionOfTotal={teamPercentage(
+                player
+                  .filter((e) => e.team_code === teamItem.code)
+                  .map((e) => e.total_points)
+                  .reduce(reducer)
+              )}
               topPlayerPoints={player
                 .filter((e) => e.team_code === teamItem.code)
                 .map((e) => e.total_points)
                 .reduce((a, b) => Math.max(a, b), -Infinity)}
+              topPlayerName={player
+                .filter((e) => e.team_code === teamItem.code)
+                .filter(
+                  (e) =>
+                    e.total_points ===
+                    player
+                      .filter((e) => e.team_code === teamItem.code)
+                      .map((e) => e.total_points)
+                      .reduce((a, b) => Math.max(a, b), -Infinity)
+                )
+                .map((e) => e.second_name)}
             />
           );
         })}

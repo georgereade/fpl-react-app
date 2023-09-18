@@ -24,9 +24,9 @@ function Header() {
             <li className="nav-item mt-2">
               <a
                 className="nav-link pb-3"
-                href="https://georgereade.github.io/Portfolio/projects.html"
+                href="https://gr-portfolio-nine.vercel.app/"
               >
-                Projects
+                Return to Portfolio
               </a>
             </li>
           </ul>

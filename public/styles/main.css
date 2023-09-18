@@ -16,17 +16,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* @media screen and (max-width: 500px) {
-  /* #infoCard,
-  .card-container {
-    flex-direction: column;
-    justify-content: center;
-  } */
-/* body {
-    background-color: #3d1698;
-  } */
-/* } */
-
 #topnav {
   background-color: #3d1698;
 }
@@ -56,7 +45,7 @@ h1,
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #7353be;
-  width: 100vw;
+  width: 100%;
 }
 
 .bottomPanel {
@@ -80,4 +69,8 @@ h1,
 
 .infoalert {
   justify-content: center;
+}
+
+.gold {
+  color: goldenrod;
 }

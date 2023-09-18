@@ -13,7 +13,7 @@ import { Zoom } from "react-awesome-reveal";
 import { AllContext } from "../contexts/AllContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function InfoWindow(props) {
+function GameweekWindow(props) {
   const { gwstatsChecked } = useContext(AllContext);
 
   const theme = createTheme({
@@ -54,7 +54,7 @@ function InfoWindow(props) {
                     color="text.secondary"
                     align="center"
                   >
-                    Highest Score:<strong>{props.topScore}</strong> <br />
+                    Top Score:<strong>{props.topScore}</strong> <br />
                     Average Score:
                     <strong>{props.averageScore}</strong>
                   </Typography>
@@ -69,24 +69,26 @@ function InfoWindow(props) {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography display="block">
-                      Top Scoring Player:
-                      <br /> {props.topPlayerName}:{" "}
-                      <strong>{props.topPlayerPoints}pts</strong>
+                      Player of the Week:
+                      <br />{" "}
+                      <strong class="gold">
+                        {props.topPlayerName} {props.topPlayerPoints}pts
+                      </strong>
                       <br />
                       <br />
                       Most Captained: <br />
-                      {props.mostCaptained}
+                      <strong class="gold">{props.mostCaptained}</strong>
                       <br />
                       <br />
                       Chips Played:
                       <br />
-                      Bench Boost: <strong>{props.bb}%</strong>
+                      {props.bb > 0 ? "Bench Boost: " + props.bb + "%" : ""}
                       <br />
-                      Triple Captain: <strong>{props.tc}%</strong>
+                      {props.tc > 0 ? "Triple Captain: " + props.tc + "%" : ""}
                       <br />
-                      Free Hit: <strong>{props.fh}%</strong>
+                      {props.fh > 0 ? "Free Hit: " + props.fh + "%" : ""}
                       <br />
-                      Wildcard: <strong>{props.wc}%</strong>
+                      {props.wc > 0 ? "Wildcard: " + props.wc + "%" : ""}
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -99,4 +101,4 @@ function InfoWindow(props) {
   );
 }
 
-export default InfoWindow;
+export default GameweekWindow;

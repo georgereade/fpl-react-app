@@ -54,8 +54,8 @@ function TeamsWindow(props) {
                     color="text.secondary"
                     align="center"
                   >
-                    Player Points: <strong>{props.playerPoints}</strong> <br />%
-                    of Total:{" "}
+                    <strong>{props.playerPoints}</strong> Player Points <br />{" "}
+                    <strong>{props.teamProportionOfTotal}% </strong>of Total
                   </Typography>
                 </CardContent>
                 <Accordion>
@@ -68,8 +68,16 @@ function TeamsWindow(props) {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
-                      Top Player: {props.topPlayerPoints}pts <br />
-                      Strength: {props.strength}
+                      Top Player:
+                      <br />
+                      <strong class="gold">
+                        {" "}
+                        {props.topPlayerName[0]} {props.topPlayerPoints}pts
+                      </strong>
+                      <br />
+                      Team Difficulty:
+                      <br />
+                      <strong> {props.strength}</strong>
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
