@@ -11,24 +11,29 @@ import Box from "@mui/material/Box";
 import { Zoom } from "react-awesome-reveal";
 import Collapse from "@mui/material/Collapse";
 import { AllContext } from "../contexts/AllContext";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 
 function TeamsWindow(props) {
   const { teamstatsChecked } = useContext(AllContext);
 
-  const theme = createTheme({
+  let theme = createTheme({
     typography: {
       fontFamily: "Chivo, sans-serif",
     },
   });
+  theme = responsiveFontSizes(theme);
 
   return (
-    <div id="infoCard">
+    <div id="teamsCard">
       <ThemeProvider theme={theme}>
         <Box sx={{ display: "flex" }}>
           <Collapse collapsedSize={0} in={!!teamstatsChecked}>
             <Zoom in={!!teamstatsChecked} triggerOnce={true}>
-              <Card sx={{ maxWidth: 275, minWidth: 275 }}>
+              <Card className="materialCard">
                 <CardMedia
                   component="img"
                   alt="team-badges"
@@ -43,9 +48,10 @@ function TeamsWindow(props) {
                 <CardContent>
                   <Typography
                     gutterBottom
-                    variant="h5"
+                    variant="h6"
                     component="div"
                     align="center"
+                    className="itemName"
                   >
                     {props.teamName}
                   </Typography>
@@ -70,7 +76,7 @@ function TeamsWindow(props) {
                     <Typography>
                       Top Player:
                       <br />
-                      <strong class="gold">
+                      <strong className="gold">
                         {" "}
                         {props.topPlayerName[0]} {props.topPlayerPoints}pts
                       </strong>

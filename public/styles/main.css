@@ -5,10 +5,12 @@ body {
   font-family: "Chivo", sans-serif;
 }
 
-#infoCard,
-.card-container {
+#gameweekCard,
+#teamsCard,
+.gw-card-container,
+.team-card-container {
   display: flex;
-  margin: 15px;
+  margin: 10px;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
@@ -23,14 +25,18 @@ body {
 .navbar-brand,
 .nav-link,
 h1,
-#statsToggle {
+#statsToggle,
+.dropdown-item {
   color: whitesmoke;
 }
 
 .nav-link:hover,
 .navbar-brand:hover,
-.socials:hover {
-  color: #c94cd4;
+.socialLinks:hover,
+#statsToggle:hover,
+.dropdown-item:hover {
+  color: #87c8e4;
+  fill: #87c8e4;
 }
 
 #player-photos {
@@ -42,8 +48,7 @@ h1,
   text-align: center;
   align-content: center;
   color: whitesmoke;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5px;
   background-color: #7353be;
   width: 100%;
 }
@@ -63,14 +68,76 @@ h1,
 
 .sticky {
   position: fixed;
-  top: 72px;
-  z-index: 99989;
+  top: 56px;
+  z-index: 5;
 }
 
 .infoalert {
   justify-content: center;
+  position: fixed;
+  top: 94px;
+  width: 100%;
+  z-index: 100;
 }
 
 .gold {
   color: goldenrod;
+}
+
+.materialCard {
+  max-width: 275px;
+  min-width: 275px;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  padding-bottom: 6px;
+}
+
+/* #totalUsersDisplay {
+  display: block;
+  position: fixed;
+  top: 90px;
+  z-index: 8;
+} */
+
+.dropdown-item {
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 1000px) {
+  #infoCard {
+    transform: scale(0.8);
+    margin: 0px;
+    font-size: 1rem;
+  }
+  .gw-card-container {
+    padding-top: 130px;
+    margin: 5px;
+  }
+  #player-photos {
+    transform: scale(0.8);
+  }
+  .materialCard {
+    min-width: 160px;
+    max-width: 160px;
+  }
+  #topnav {
+    font-size: 0.8rem;
+  }
+  .socialLinks {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #collapsedMenu {
+    visibility: hidden;
+  }
+  .gw-card-container {
+    padding-top: 130px;
+  }
 }

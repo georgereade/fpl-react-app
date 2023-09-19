@@ -27,9 +27,9 @@ function TopPanel() {
   return (
     <div className="topPanel">
       <ThemeProvider theme={theme}>
-        <p>Total FPL Users: {formattedUsers}</p>
         <div className="sticky topPanel">
           {" "}
+          <p>Total FPL Users: {formattedUsers}</p>
           <FormControlLabel
             control={
               <Switch

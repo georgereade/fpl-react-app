@@ -26,7 +26,7 @@ export default function InfoAlert() {
             </IconButton>
           }
         >
-          Toggle which stats to display below. Stats will be automatically
+          Toggle which stats to display above. Stats will be automatically
           updated after each gameweek.
         </Alert>
       </Collapse>

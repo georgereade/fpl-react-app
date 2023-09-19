@@ -7,9 +7,9 @@ import InfoAlert from "./Alert.js";
 function App() {
   return (
     <div>
-      <InfoAlert />
       <Header />
       <TopPanel />
+      <InfoAlert />
       <Body />
     </div>
   );

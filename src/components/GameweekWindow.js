@@ -11,24 +11,29 @@ import Box from "@mui/material/Box";
 import Collapse from "@mui/material/Collapse";
 import { Zoom } from "react-awesome-reveal";
 import { AllContext } from "../contexts/AllContext";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 
 function GameweekWindow(props) {
   const { gwstatsChecked } = useContext(AllContext);
 
-  const theme = createTheme({
+  let theme = createTheme({
     typography: {
       fontFamily: "Chivo, sans-serif",
     },
   });
+  theme = responsiveFontSizes(theme);
 
   return (
-    <div id="infoCard">
+    <div id="gameweekCard">
       <ThemeProvider theme={theme}>
         <Box sx={{ display: "flex" }}>
           <Collapse in={!!gwstatsChecked}>
             <Zoom in={!!gwstatsChecked} triggerOnce={true}>
-              <Card sx={{ maxWidth: 275, minWidth: 275 }}>
+              <Card className="materialCard">
                 <CardMedia
                   component="img"
                   alt="highest-score"
@@ -43,9 +48,10 @@ function GameweekWindow(props) {
                 <CardContent>
                   <Typography
                     gutterBottom
-                    variant="h5"
+                    variant="h6"
                     component="div"
                     align="center"
+                    className="itemName"
                   >
                     {props.gameweekName}
                   </Typography>
@@ -71,13 +77,13 @@ function GameweekWindow(props) {
                     <Typography display="block">
                       Player of the Week:
                       <br />{" "}
-                      <strong class="gold">
+                      <strong className="gold">
                         {props.topPlayerName} {props.topPlayerPoints}pts
                       </strong>
                       <br />
                       <br />
                       Most Captained: <br />
-                      <strong class="gold">{props.mostCaptained}</strong>
+                      <strong className="gold">{props.mostCaptained}</strong>
                       <br />
                       <br />
                       Chips Played:

@@ -62,7 +62,7 @@ function Body() {
 
   return (
     <div id="mainContent">
-      <div className="card-container">
+      <div className="gw-card-container">
         {gameweek.map((gameweekItem, index) => {
           return (
             <GameweekWindow
@@ -98,7 +98,7 @@ function Body() {
         })}
       </div>{" "}
       <div className="topPanel"></div>{" "}
-      <div className="card-container">
+      <div className="team-card-container">
         {teams.map((teamItem, index) => {
           return (
             <TeamsWindow
