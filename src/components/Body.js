@@ -11,7 +11,7 @@ function Body() {
 
   const fetchTeamsData = () => {
     fetch(
-      "https://cors-anywhere-sd7c.onrender.com/https://fantasy.premierleague.com/api/bootstrap-static/"
+      "https://cors-anywhere.herokuapp.com/https://fantasy.premierleague.com/api/bootstrap-static/"
     )
       .then((response) => {
         return response.json();
@@ -25,7 +25,7 @@ function Body() {
 
   const fetchGameweekData = () => {
     fetch(
-      "https://cors-anywhere-sd7c.onrender.com/https://fantasy.premierleague.com/api/bootstrap-static/"
+      "https://cors-anywhere.herokuapp.com/https://fantasy.premierleague.com/api/bootstrap-static/"
     )
       .then((response) => {
         return response.json();
