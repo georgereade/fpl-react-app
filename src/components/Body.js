@@ -10,24 +10,31 @@ function Body() {
   const { teams, setTeams } = useContext(AllContext);
 
   const fetchTeamsData = () => {
-    fetch(
-      "https://cors-anywhere.herokuapp.com/https://fantasy.premierleague.com/api/bootstrap-static/"
-    )
+    fetch("/api/bootstrap-static/")
       .then((response) => {
+        if (!response.ok) {
+          // This handles if the API returns a 404 or other error codes
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         return response.json();
       })
       .then((data) => {
         setPlayer(data.elements);
         setTeams(data.teams);
         setTotalUsers(data.total_players);
+      })
+      .catch((error) => {
+        console.error("There was an issue with the fetch:", error);
       });
   };
 
   const fetchGameweekData = () => {
-    fetch(
-      "https://cors-anywhere.herokuapp.com/https://fantasy.premierleague.com/api/bootstrap-static/"
-    )
+    fetch("/api/bootstrap-static/")
       .then((response) => {
+        if (!response.ok) {
+          // This handles if the API returns a 404 or other error codes
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         return response.json();
       })
       .then((data) => {
@@ -36,6 +43,9 @@ function Body() {
           return gw.finished === true;
         });
         setGameweek(finishedgws);
+      })
+      .catch((error) => {
+        console.error("There was an issue with the fetch:", error);
       });
   };
 
