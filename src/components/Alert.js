@@ -27,8 +27,7 @@ export default function InfoAlert() {
           }
         >
           Toggle which stats to display above. Stats will be automatically
-          updated after each gameweek. Please note you may need to wait 30
-          seconds due to the free server slowing down due to inactivity.
+          updated after each gameweek.
         </Alert>
       </Collapse>
     </Box>

@@ -29,7 +29,7 @@ function TopPanel() {
       <ThemeProvider theme={theme}>
         <div className="sticky topPanel">
           {" "}
-          <p>Total FPL Users: {formattedUsers}</p>
+          <p>Total FPL Users in 2024/25 season: {formattedUsers}</p>
           <FormControlLabel
             control={
               <Switch

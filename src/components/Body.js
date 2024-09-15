@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
-import GameweekWindow from "./GameweekWindow";
+import GameweekWindow from "./GameweekWindow.js";
 import { AllContext } from "../contexts/AllContext.js";
-import TeamsWindow from "./TeamsWindow";
+import TeamsWindow from "./TeamsWindow.js";
 
 function Body() {
   const { totalUsers, setTotalUsers } = useContext(AllContext);
@@ -10,7 +10,18 @@ function Body() {
   const { teams, setTeams } = useContext(AllContext);
 
   const fetchTeamsData = () => {
-    fetch("/api/bootstrap-static/")
+    fetch("api/bootstrap-static/", {
+      method: "GET",
+      credentials: "include", // Include cookies
+      headers: {
+        "x-requested-with": "XMLHttpRequest", // Required header
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
+        Origin: "https://fantasy.premierleague.com/",
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           // This handles if the API returns a 404 or other error codes
@@ -29,7 +40,18 @@ function Body() {
   };
 
   const fetchGameweekData = () => {
-    fetch("/api/bootstrap-static/")
+    fetch("api/bootstrap-static/", {
+      method: "GET",
+      credentials: "include", // Include cookies
+      headers: {
+        "x-requested-with": "XMLHttpRequest", // Required header
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+        Origin: "https://fantasy.premierleague.com/",
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           // This handles if the API returns a 404 or other error codes
@@ -52,7 +74,7 @@ function Body() {
   useEffect(() => {
     fetchTeamsData();
     fetchGameweekData();
-  });
+  }, []); // This stops useEffect from running continuously
 
   function userPercentage(num) {
     return ((num / totalUsers) * 100).toFixed(2);

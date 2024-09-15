@@ -1,14 +1,23 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
-module.exports = function (app) {
+module.exports = async function (app) {
   app.use(
-    "/api", // You will call "/api" in your fetch
+    "api/bootstrap-static/",
     createProxyMiddleware({
-      target: "https://fantasy.premierleague.com", // External API
-      changeOrigin: true, // Needed for virtual hosted sites
-      secure: false, // Disable SSL verification if needed
-      pathRewrite: {
-        "^/api": "/api", // Rewrites the path so "/api" matches "/api" on the target server
+      target: "https://fantasy.premierleague.com",
+      changeOrigin: true,
+      pathRewrite: { "^/api": "" },
+      onProxyRes: (proxyRes, req, res) => {
+        const cookies = proxyRes.headers["set-cookie"];
+        if (cookies) {
+          res.setHeader("set-cookie", cookies); // Pass the cookies to the client
+        }
+      },
+      onProxyReq: (proxyReq, req, res) => {
+        const cookieHeader = req.headers.cookie;
+        if (cookieHeader) {
+          proxyReq.setHeader("cookie", cookieHeader); // Include cookies in the request
+        }
       },
     })
   );
