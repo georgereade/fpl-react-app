@@ -10,16 +10,19 @@ function Body() {
   const { teams, setTeams } = useContext(AllContext);
 
   const fetchTeamsData = () => {
-    fetch("api/bootstrap-static/", {
+    fetch("https://cors-proxy-90954623675.europe-west1.run.app/", {
       method: "GET",
-      credentials: "include", // Include cookies
       headers: {
-        "x-requested-with": "XMLHttpRequest", // Required header
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
+        Accept: "application/json",
+
         "User-Agent":
           "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36",
-        Origin: "https://fantasy.premierleague.com/",
+        "x-cors-headers": JSON.stringify({
+          // allows to send forbidden headers
+          // https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name
+          cookies: "x=123",
+        }),
       },
     })
       .then((response) => {
@@ -40,16 +43,18 @@ function Body() {
   };
 
   const fetchGameweekData = () => {
-    fetch("api/bootstrap-static/", {
+    fetch("https://cors-proxy-90954623675.europe-west1.run.app/", {
       method: "GET",
-      credentials: "include", // Include cookies
       headers: {
-        "x-requested-with": "XMLHttpRequest", // Required header
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
+        Accept: "application/json",
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
-        Origin: "https://fantasy.premierleague.com/",
+        "x-cors-headers": JSON.stringify({
+          // allows to send forbidden headers
+          // https://developer.mozilla.org/en-US/docs/Glossary/Forbidden_header_name
+          cookies: "x=123",
+        }),
       },
     })
       .then((response) => {
@@ -57,6 +62,10 @@ function Body() {
           // This handles if the API returns a 404 or other error codes
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        const headers = JSON.parse(
+          response.headers.get("cors-received-headers")
+        );
+        console.log(headers);
         return response.json();
       })
       .then((data) => {
